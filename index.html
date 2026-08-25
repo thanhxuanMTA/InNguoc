@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>In chữ ngược gương - UTM HelvetIns - A4</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1,
+             maximum-scale=5,
+             viewport-fit=cover"
+>
+
+<title>In chữ gương - UTM HelvetIns</title>
+
 
 <style>
 
 /* =========================================================
-   FONT UTM HELVETINS
-   Đặt file:
-   UTM HelvetIns.ttf
-   cùng thư mục với file HTML
-   ========================================================= */
+   FONT
+========================================================= */
 
 @font-face {
-    font-family: "UTM HelvetIns";
+
+    font-family:
+        "UTM HelvetIns";
 
     src:
         url("./UTM HelvetIns.ttf")
         format("truetype");
 
     font-weight: normal;
+
     font-style: normal;
 
     font-display: swap;
@@ -30,32 +40,68 @@
 
 
 /* =========================================================
-   TRANG
-   ========================================================= */
+   BIẾN GIAO DIỆN
+========================================================= */
 
-@page {
-    size: A4 portrait;
-    margin: 0;
+:root {
+
+    --bg:
+        #eef1f5;
+
+    --panel:
+        #ffffff;
+
+    --text:
+        #15171a;
+
+    --muted:
+        #6b7280;
+
+    --border:
+        #dfe3e8;
+
+    --dark:
+        #111827;
+
+    --light:
+        #f3f4f6;
+
+    --radius:
+        14px;
 }
 
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
-    box-sizing: border-box;
+
+    box-sizing:
+        border-box;
+
+    -webkit-tap-highlight-color:
+        transparent;
 }
 
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-}
 
+    margin:
+        0;
 
-body {
+    padding:
+        0;
 
-    background: #e9edf1;
+    min-height:
+        100%;
 
-    color: #111;
+    background:
+        var(--bg);
+
+    color:
+        var(--text);
 
     font-family:
         Arial,
@@ -63,80 +109,294 @@ body {
 }
 
 
+button,
+input,
+select,
+textarea {
+
+    font:
+        inherit;
+}
+
+
 /* =========================================================
-   THANH ĐIỀU KHIỂN
-   ========================================================= */
+   APP
+========================================================= */
 
-.toolbar {
+.app {
 
-    width: min(
-        1200px,
-        calc(100% - 24px)
-    );
+    width:
+        min(
+            1250px,
+            calc(100% - 24px)
+        );
 
-    margin: 14px auto;
+    margin:
+        14px auto 30px;
+}
 
-    padding: 16px;
 
-    background: #fff;
+/* =========================================================
+   HEADER
+========================================================= */
 
-    border-radius: 12px;
+.header {
 
-    box-shadow:
-        0 3px 18px
-        rgba(0,0,0,.12);
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    margin-bottom:
+        14px;
+}
+
+
+.brand {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+}
+
+
+.logo {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border-radius:
+        12px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    background:
+        var(--dark);
+
+    color:
+        white;
+
+    font-weight:
+        800;
+
+    font-size:
+        17px;
 }
 
 
 h1 {
 
-    margin: 0 0 8px;
+    margin:
+        0;
 
-    font-size: 21px;
+    font-size:
+        20px;
+
+    line-height:
+        1.1;
 }
 
 
-.description {
+.subtitle {
 
-    margin-bottom: 14px;
+    margin-top:
+        4px;
 
-    color: #555;
+    color:
+        var(--muted);
 
-    font-size: 13px;
+    font-size:
+        12px;
+}
 
-    line-height: 1.5;
+
+.badge {
+
+    white-space:
+        nowrap;
+
+    padding:
+        6px 9px;
+
+    border-radius:
+        999px;
+
+    background:
+        #f0f2f4;
+
+    color:
+        #5f6670;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
 }
 
 
 /* =========================================================
-   Ô NHẬP
-   ========================================================= */
+   LAYOUT
+========================================================= */
+
+.layout {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        380px minmax(0, 1fr);
+
+    gap:
+        15px;
+
+    align-items:
+        start;
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.panel {
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        0 7px 28px
+        rgba(15,23,42,.06);
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+    padding:
+        16px;
+}
+
+
+.section {
+
+    padding-bottom:
+        16px;
+
+    margin-bottom:
+        16px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.section:last-child {
+
+    margin-bottom:
+        0;
+
+    padding-bottom:
+        0;
+
+    border-bottom:
+        0;
+}
+
+
+.section-title {
+
+    margin-bottom:
+        10px;
+
+    color:
+        #737b87;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
 
 textarea {
 
-    width: 100%;
+    width:
+        100%;
 
-    min-height: 105px;
+    min-height:
+        105px;
 
-    resize: vertical;
+    resize:
+        vertical;
 
-    padding: 10px;
+    padding:
+        11px 12px;
 
     border:
-        1px solid #bbb;
+        1px solid var(--border);
 
-    border-radius: 8px;
+    border-radius:
+        10px;
 
-    outline: none;
+    outline:
+        none;
+
+    background:
+        #fafbfc;
+
+    color:
+        #111;
 
     font-family:
         "UTM HelvetIns",
         Arial,
         sans-serif;
 
-    font-size: 20px;
+    font-size:
+        19px;
 
-    line-height: 1.3;
+    line-height:
+        1.25;
 }
 
 
@@ -144,362 +404,869 @@ textarea:focus,
 input:focus,
 select:focus {
 
-    border-color: #555;
+    border-color:
+        #9299a3;
 
     box-shadow:
-        0 0 0 2px
-        rgba(0,0,0,.08);
+        0 0 0 3px
+        rgba(17,24,39,.06);
 }
 
 
 /* =========================================================
-   CONTROLS
-   ========================================================= */
+   FIELD
+========================================================= */
 
-.controls {
+.grid2 {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(150px, 1fr)
-        );
+        1fr 1fr;
 
-    gap: 10px;
-
-    margin-top: 14px;
+    gap:
+        9px;
 }
 
 
-.control {
+.field label {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    justify-content:
+        space-between;
 
-    gap: 5px;
+    gap:
+        5px;
+
+    margin-bottom:
+        6px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
 }
 
 
-.control label {
+.unit {
 
-    font-size: 13px;
+    color:
+        var(--muted);
 
-    font-weight: bold;
+    font-weight:
+        600;
 }
 
 
-input,
+input[type="number"],
 select {
 
-    width: 100%;
+    width:
+        100%;
 
-    height: 36px;
+    height:
+        38px;
 
     padding:
-        5px 8px;
+        0 9px;
 
     border:
-        1px solid #bbb;
+        1px solid var(--border);
 
-    border-radius: 6px;
+    border-radius:
+        9px;
 
-    background: white;
+    outline:
+        none;
 
-    color: #111;
+    background:
+        #fff;
 
-    outline: none;
+    color:
+        #111;
+}
+
+
+.range-box {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0,1fr) 72px;
+
+    gap:
+        8px;
+
+    align-items:
+        center;
 }
 
 
 input[type="range"] {
 
-    padding: 0;
+    width:
+        100%;
+
+    accent-color:
+        #111827;
 }
 
 
 /* =========================================================
-   NÚT
-   ========================================================= */
+   OPTIONS
+========================================================= */
+
+.options {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        8px;
+}
+
+
+.option {
+
+    min-height:
+        40px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    padding:
+        8px 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+}
+
+
+.option.active {
+
+    border-color:
+        #111827;
+
+    background:
+        #f4f5f7;
+}
+
+
+.option input {
+
+    width:
+        17px;
+
+    height:
+        17px;
+
+    margin:
+        0;
+
+    accent-color:
+        #111827;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
 
 .buttons {
 
-    display: flex;
+    display:
+        grid;
 
-    gap: 8px;
+    grid-template-columns:
+        1fr 1fr;
 
-    margin-top: 14px;
-
-    flex-wrap: wrap;
+    gap:
+        8px;
 }
 
 
 button {
 
-    border: none;
+    height:
+        42px;
 
-    border-radius: 7px;
+    border:
+        0;
 
-    padding:
-        10px 16px;
+    border-radius:
+        9px;
 
-    background: #222;
+    cursor:
+        pointer;
 
-    color: white;
+    font-size:
+        13px;
 
-    font-weight: bold;
-
-    cursor: pointer;
+    font-weight:
+        800;
 }
 
 
-button:hover {
+.primary {
 
-    background: #444;
+    background:
+        #111827;
+
+    color:
+        white;
 }
 
 
-button.secondary {
+.secondary {
 
-    background: #e5e5e5;
+    background:
+        #eceef1;
 
-    color: #111;
+    color:
+        #111827;
+}
+
+
+button:active {
+
+    transform:
+        translateY(1px);
+}
+
+
+.note {
+
+    margin-top:
+        9px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
 }
 
 
 /* =========================================================
-   VÙNG XEM TRƯỚC
-   ========================================================= */
+   PREVIEW PANEL
+========================================================= */
 
-.workspace {
+.preview-panel {
 
-    display: flex;
+    min-width:
+        0;
 
-    justify-content: center;
-
-    padding: 15px;
+    padding:
+        13px;
 }
 
+
+.preview-header {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        10px;
+}
+
+
+.preview-title {
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+}
+
+
+.preview-info {
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+
+/* =========================================================
+   VIEWPORT
+========================================================= */
+
+.preview-viewport {
+
+    width:
+        100%;
+
+    overflow:
+        auto;
+
+    border-radius:
+        11px;
+
+    background:
+        #dfe3e8;
+
+    padding:
+        18px;
+}
+
+
+/* =========================================================
+   A4 PAGE
+========================================================= */
 
 .page {
 
-    position: relative;
+    position:
+        relative;
 
-    width: 210mm;
+    width:
+        210mm;
 
-    height: 297mm;
+    height:
+        297mm;
 
-    background: white;
+    margin:
+        0 auto;
 
-    overflow: hidden;
+    background:
+        white;
+
+    overflow:
+        hidden;
 
     box-shadow:
-        0 4px 22px
-        rgba(0,0,0,.22);
+        0 7px 26px
+        rgba(0,0,0,.19);
 }
 
 
 /* =========================================================
-   CHỮ
-   ========================================================= */
+   TEXT
 
-.text {
+   QUAN TRỌNG:
+   nowrap = không tự xuống dòng.
+========================================================= */
 
-    position: absolute;
+.word {
 
-    /*
-       Chiều rộng vùng chữ.
-       Tâm vùng nằm tại X.
-    */
+    position:
+        absolute;
 
-    width: 190mm;
+    left:
+        105mm;
 
-    left: 0;
+    top:
+        148.5mm;
 
-    top: 0;
+    width:
+        max-content;
 
-    white-space: pre-wrap;
+    max-width:
+        none;
 
-    word-break: normal;
+    white-space:
+        pre;
+
+    word-break:
+        normal;
+
+    overflow:
+        visible;
+
+    transform-origin:
+        center center;
+
+    text-align:
+        left;
 
     font-family:
         "UTM HelvetIns",
         Arial,
         sans-serif;
 
-    color: #000;
+    font-weight:
+        normal;
 
-    line-height: 1;
+    line-height:
+        1;
 
-    text-align: center;
+    color:
+        #000;
 
-    transform-origin:
-        center center;
+    user-select:
+        none;
+}
 
-    user-select: none;
+
+/*
+   Mỗi dòng người dùng nhập bằng Enter
+   vẫn là một dòng riêng.
+*/
+
+.word .line {
+
+    display:
+        block;
+
+    white-space:
+        nowrap;
 }
 
 
 /* =========================================================
    TÂM
-   ========================================================= */
+========================================================= */
 
-.center-point {
+.center {
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 2mm;
+    width:
+        5mm;
 
-    height: 2mm;
+    height:
+        5mm;
 
-    margin-left: -1mm;
+    transform:
+        translate(-50%,-50%);
 
-    margin-top: -1mm;
+    pointer-events:
+        none;
 
-    border-radius: 50%;
+    display:
+        none;
+}
 
-    background: red;
 
-    display: none;
+.center::before,
+.center::after {
 
-    pointer-events: none;
+    content:
+        "";
+
+    position:
+        absolute;
+
+    background:
+        #ef3340;
+}
+
+
+.center::before {
+
+    width:
+        100%;
+
+    height:
+        .25mm;
+
+    left:
+        0;
+
+    top:
+        50%;
+}
+
+
+.center::after {
+
+    width:
+        .25mm;
+
+    height:
+        100%;
+
+    top:
+        0;
+
+    left:
+        50%;
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
-@media(max-width: 800px) {
+@media(max-width:900px) {
+
+    .layout {
+
+        grid-template-columns:
+            1fr;
+    }
 
     .controls {
 
-        grid-template-columns:
-            repeat(2, 1fr);
+        order:
+            1;
     }
 
+    .preview-panel {
+
+        order:
+            2;
+    }
+}
+
+
+@media(max-width:600px) {
+
+    body {
+
+        padding:
+            8px;
+    }
+
+
+    .app {
+
+        width:
+            100%;
+
+        margin:
+            0 auto 20px;
+    }
+
+
+    .header {
+
+        margin-bottom:
+            10px;
+    }
+
+
+    .logo {
+
+        width:
+            38px;
+
+        height:
+            38px;
+
+        border-radius:
+            10px;
+    }
+
+
+    h1 {
+
+        font-size:
+            17px;
+    }
+
+
+    .subtitle {
+
+        font-size:
+            10px;
+    }
+
+
+    .badge {
+
+        display:
+            none;
+    }
+
+
+    .controls {
+
+        padding:
+            13px;
+    }
+
+
+    .preview-panel {
+
+        padding:
+            9px;
+    }
+
+
+    .preview-viewport {
+
+        padding:
+            8px;
+    }
+
+
+    .grid2 {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .options {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    /*
+       A4 được scale bằng JS để vừa màn hình.
+       Không dùng CSS transform cố định.
+    */
 
     .page {
 
         transform:
-            scale(.65);
-
-        transform-origin:
-            top center;
-
-        margin-bottom:
-            -104mm;
+            none;
     }
 }
 
 
 /* =========================================================
-   IN / PDF
-   ========================================================= */
+   PRINT
+========================================================= */
 
 @media print {
 
     html,
     body {
 
-        width: 210mm;
+        width:
+            210mm;
 
-        height: 297mm;
+        height:
+            297mm;
 
-        margin: 0;
+        padding:
+            0;
 
-        padding: 0;
+        margin:
+            0;
 
-        background: white;
+        background:
+            white;
     }
 
 
-    .toolbar {
+    .app {
 
-        display: none !important;
+        width:
+            210mm;
+
+        margin:
+            0;
     }
 
 
-    .workspace {
+    .header,
+    .controls,
+    .preview-header {
 
-        display: block;
+        display:
+            none !important;
+    }
 
-        padding: 0;
+
+    .layout {
+
+        display:
+            block;
+    }
+
+
+    .preview-panel {
+
+        padding:
+            0;
+
+        border:
+            0;
+
+        box-shadow:
+            none;
+    }
+
+
+    .preview-viewport {
+
+        padding:
+            0;
+
+        overflow:
+            visible;
+
+        background:
+            white;
     }
 
 
     .page {
 
-        width: 210mm;
+        width:
+            210mm;
 
-        height: 297mm;
+        height:
+            297mm;
 
-        margin: 0;
+        margin:
+            0;
 
-        box-shadow: none;
+        box-shadow:
+            none;
 
-        transform: none !important;
+        transform:
+            none !important;
     }
 
 
-    .center-point {
+    .center {
 
-        display: none !important;
+        display:
+            none !important;
     }
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
+<div class="app">
+
+
 <!-- =====================================================
-     THANH ĐIỀU KHIỂN
+     HEADER
 ===================================================== -->
 
-<div class="toolbar">
+<header class="header">
 
-    <h1>
-        IN CHỮ NGƯỢC GƯƠNG · UTM HelvetIns · A4
-    </h1>
+    <div class="brand">
 
+        <div class="logo">
+            Hg
+        </div>
 
-    <div class="description">
+        <div>
 
-        Chữ được lật ngang như nhìn qua gương.
-        Có thể chỉnh chiều cao chữ, co ngang,
-        vị trí và chiều lật.
+            <h1>
+                Chữ gương · UTM HelvetIns
+            </h1>
+
+            <div class="subtitle">
+                In chữ ngược · A4 · xem trước thời gian thực
+            </div>
+
+        </div>
 
     </div>
 
 
-    <!-- =================================================
-         NỘI DUNG
-    ================================================= -->
+    <div class="badge">
+        A4
+    </div>
 
-    <textarea
-        id="textInput"
-        spellcheck="false"
-    >CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</textarea>
+</header>
 
 
-    <!-- =================================================
-         CONTROLS
-    ================================================= -->
 
-    <div class="controls">
+<!-- =====================================================
+     LAYOUT
+===================================================== -->
+
+<div class="layout">
 
 
-        <!-- CỠ CHỮ -->
+<!-- =====================================================
+     CONTROL PANEL
+===================================================== -->
 
-        <div class="control">
+<section class="panel controls">
+
+
+    <!-- NỘI DUNG -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Nội dung
+        </div>
+
+
+        <textarea
+            id="textInput"
+            spellcheck="false"
+        >CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</textarea>
+
+    </div>
+
+
+
+    <!-- KÍCH THƯỚC -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Kích thước
+        </div>
+
+
+        <div class="field">
 
             <label>
-                Chiều cao chữ in hoa (cm)
+
+                Chiều cao chữ in hoa
+
+                <span class="unit">
+                    cm
+                </span>
+
             </label>
+
 
             <input
                 id="capHeight"
@@ -516,266 +1283,417 @@ button.secondary {
         </div>
 
 
-        <!-- CO NGANG -->
+        <div
+            style="
+                height:10px
+            "
+        ></div>
 
-        <div class="control">
+
+        <div class="field">
 
             <label>
 
-                Co ngang:
-                <span id="scaleValue">
-                    100
-                </span>%
+                Co ngang
+
+                <span
+                    class="unit"
+                    id="scaleLabel"
+                >
+                    100%
+                </span>
 
             </label>
 
-            <input
-                id="scaleX"
-                type="range"
 
-                min="10"
-                max="300"
+            <div class="range-box">
 
-                step="1"
+                <input
+                    id="scaleX"
+                    type="range"
 
-                value="100"
-            >
+                    min="10"
+                    max="300"
 
-        </div>
+                    step="1"
+
+                    value="100"
+                >
 
 
-        <!-- VỊ TRÍ X -->
+                <input
+                    id="scaleXNumber"
+                    type="number"
 
-        <div class="control">
+                    min="10"
+                    max="300"
 
-            <label>
-                Vị trí X (mm)
-            </label>
+                    step="1"
 
-            <input
-                id="posX"
-                type="number"
+                    value="100"
+                >
 
-                min="-100"
-                max="310"
-
-                step="0.1"
-
-                value="105"
-            >
+            </div>
 
         </div>
-
-
-        <!-- VỊ TRÍ Y -->
-
-        <div class="control">
-
-            <label>
-                Vị trí Y (mm)
-            </label>
-
-            <input
-                id="posY"
-                type="number"
-
-                min="-100"
-                max="400"
-
-                step="0.1"
-
-                value="45"
-            >
-
-        </div>
-
-
-        <!-- KHOẢNG CÁCH -->
-
-        <div class="control">
-
-            <label>
-                Khoảng cách chữ (px)
-            </label>
-
-            <input
-                id="letterSpacing"
-                type="number"
-
-                min="-20"
-                max="50"
-
-                step="0.1"
-
-                value="0"
-            >
-
-        </div>
-
-
-        <!-- CĂN CHỮ -->
-
-        <div class="control">
-
-            <label>
-                Căn chữ
-            </label>
-
-            <select id="align">
-
-                <option value="center">
-                    Giữa
-                </option>
-
-                <option value="left">
-                    Trái
-                </option>
-
-                <option value="right">
-                    Phải
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <!-- ĐỘ ĐẬM -->
-
-        <div class="control">
-
-            <label>
-                Độ đậm
-            </label>
-
-            <select id="fontWeight">
-
-                <option value="normal">
-                    Thường
-                </option>
-
-                <option value="bold">
-                    Đậm
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <!-- CHIỀU LẬT -->
-
-        <div class="control">
-
-            <label>
-                Chiều lật
-            </label>
-
-            <select id="mirror">
-
-                <option value="horizontal">
-                    Lật ngang - gương
-                </option>
-
-                <option value="none">
-                    Không lật
-                </option>
-
-                <option value="vertical">
-                    Lật dọc
-                </option>
-
-                <option value="both">
-                    Lật cả hai
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <!-- HIỆN TÂM -->
-
-        <div class="control">
-
-            <label>
-                Hiện tâm định vị
-            </label>
-
-            <select id="showCenter">
-
-                <option value="no">
-                    Không
-                </option>
-
-                <option value="yes">
-                    Có
-                </option>
-
-            </select>
-
-        </div>
-
 
     </div>
 
 
-    <!-- =================================================
-         BUTTON
-    ================================================= -->
 
-    <div class="buttons">
+    <!-- GIẤY -->
 
-        <button
-            onclick="window.print()"
-        >
-            IN / LƯU PDF A4
-        </button>
+    <div class="section">
+
+        <div class="section-title">
+            Khổ giấy
+        </div>
 
 
-        <button
-            class="secondary"
-            onclick="resetSettings()"
-        >
-            ĐẶT LẠI
-        </button>
+        <div class="field">
+
+            <label>
+                Hướng giấy
+            </label>
+
+
+            <select id="orientation">
+
+                <option value="portrait">
+                    A4 dọc · 210 × 297 mm
+                </option>
+
+                <option value="landscape">
+                    A4 ngang · 297 × 210 mm
+                </option>
+
+            </select>
+
+        </div>
 
     </div>
 
-</div>
+
+
+    <!-- VỊ TRÍ -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Vị trí
+        </div>
+
+
+        <div class="grid2">
+
+
+            <div class="field">
+
+                <label>
+
+                    X
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </label>
+
+
+                <input
+                    id="posX"
+                    type="number"
+
+                    min="-100"
+                    max="400"
+
+                    step="0.1"
+
+                    value="105"
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label>
+
+                    Y
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </label>
+
+
+                <input
+                    id="posY"
+                    type="number"
+
+                    min="-100"
+                    max="400"
+
+                    step="0.1"
+
+                    value="148.5"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            style="
+                height:10px
+            "
+        ></div>
+
+
+        <div class="grid2">
+
+
+            <div class="field">
+
+                <label>
+                    Khoảng cách chữ
+                </label>
+
+
+                <input
+                    id="letterSpacing"
+                    type="number"
+
+                    min="-20"
+                    max="50"
+
+                    step="0.1"
+
+                    value="0"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>
+                    Căn chữ
+                </label>
+
+
+                <select id="align">
+
+                    <option value="center">
+                        Giữa
+                    </option>
+
+                    <option value="left">
+                        Trái
+                    </option>
+
+                    <option value="right">
+                        Phải
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LẬT -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Lật chữ
+        </div>
+
+
+        <div class="options">
+
+
+            <label
+                class="option active"
+                id="horizontalOption"
+            >
+
+                <input
+                    id="horizontalMirror"
+                    type="checkbox"
+
+                    checked
+                >
+
+                Lật ngang như gương
+
+            </label>
+
+
+            <label
+                class="option"
+                id="verticalOption"
+            >
+
+                <input
+                    id="verticalMirror"
+                    type="checkbox"
+                >
+
+                Lật dọc
+
+            </label>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- HIỂN THỊ -->
+
+    <div class="section">
+
+        <div class="section-title">
+            Hiển thị
+        </div>
+
+
+        <label
+            class="option"
+            id="centerOption"
+        >
+
+            <input
+                id="showCenter"
+                type="checkbox"
+            >
+
+            Hiện tâm định vị
+
+        </label>
+
+    </div>
+
+
+
+    <!-- BUTTON -->
+
+    <div class="section">
+
+        <div class="buttons">
+
+
+            <button
+                class="primary"
+                id="printButton"
+            >
+                IN / LƯU PDF
+            </button>
+
+
+            <button
+                class="secondary"
+                id="resetButton"
+            >
+                ĐẶT LẠI
+            </button>
+
+
+        </div>
+
+
+        <div class="note">
+
+            Chiều cao chữ được tính theo
+            <b>chiều cao thực của chữ in hoa</b>,
+            không phải chiều cao hộp font.
+
+            Khi co ngang, chữ vẫn giữ nguyên chiều cao
+            và không tự xuống dòng.
+
+        </div>
+
+    </div>
+
+
+</section>
 
 
 
 <!-- =====================================================
-     TRANG A4
+     PREVIEW
 ===================================================== -->
 
-<div class="workspace">
+<section class="panel preview-panel">
 
-    <div
-        class="page"
-        id="page"
-    >
 
-        <div
-            class="text"
-            id="preview"
-        ></div>
+    <div class="preview-header">
+
+        <div class="preview-title">
+            Bản xem trước
+        </div>
 
 
         <div
-            class="center-point"
-            id="centerPoint"
-        ></div>
+            class="preview-info"
+            id="paperInfo"
+        >
+            A4 · 210 × 297 mm
+        </div>
 
     </div>
+
+
+
+    <div class="preview-viewport" id="viewport">
+
+
+        <div
+            class="page"
+            id="page"
+        >
+
+
+            <div
+                class="word"
+                id="word"
+            ></div>
+
+
+            <div
+                class="center"
+                id="center"
+            ></div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</div>
 
 </div>
 
 
 
 <script>
-
 
 /* =========================================================
    ELEMENT
@@ -795,6 +1713,12 @@ const capHeight =
 const scaleX =
     $("scaleX");
 
+const scaleXNumber =
+    $("scaleXNumber");
+
+const orientation =
+    $("orientation");
+
 const posX =
     $("posX");
 
@@ -807,41 +1731,36 @@ const letterSpacing =
 const align =
     $("align");
 
-const fontWeight =
-    $("fontWeight");
+const horizontalMirror =
+    $("horizontalMirror");
 
-const mirror =
-    $("mirror");
+const verticalMirror =
+    $("verticalMirror");
 
 const showCenter =
     $("showCenter");
 
-const preview =
-    $("preview");
+const word =
+    $("word");
 
-const centerPoint =
-    $("centerPoint");
+const page =
+    $("page");
+
+const center =
+    $("center");
+
+const viewport =
+    $("viewport");
+
+
+let capRatio = null;
 
 
 /* =========================================================
-   TỶ LỆ CAP HEIGHT
+   ĐO CAP HEIGHT
 ========================================================= */
 
-let capHeightRatio = null;
-
-
-/*
-   Đo chiều cao thực tế của chữ H.
-
-   Font-size 100px
-   → đo actualBoundingBoxAscent / Descent
-
-   Sau đó tính ngược ra font-size
-   cần thiết để chữ in hoa cao đúng
-   số cm người dùng nhập.
-*/
-
-async function measureFont() {
+async function measureCapHeight() {
 
     try {
 
@@ -876,7 +1795,7 @@ async function measureFont() {
             !== undefined
         ) {
 
-            capHeightRatio =
+            capRatio =
 
                 (
                     metrics.actualBoundingBoxAscent
@@ -888,154 +1807,259 @@ async function measureFont() {
 
         else {
 
-            /*
-               Giá trị dự phòng.
-            */
+            capRatio =
+                .72;
 
-            capHeightRatio =
-                0.72;
         }
 
     }
 
-    catch(error) {
+    catch (e) {
 
-        capHeightRatio =
-            0.72;
+        capRatio =
+            .72;
+
     }
 
 }
 
 
 /* =========================================================
-   TÍNH FONT SIZE
+   TÍNH FONT SIZE TỪ CHIỀU CAO CHỮ
 ========================================================= */
 
-function getFontSizeFromCapHeight(cm) {
+function fontSizeFromCapHeight(cm) {
 
-    /*
-       CSS:
-
-       96 px = 1 inch
-
-       1 inch = 2.54 cm
-    */
-
-
-    const targetPixels =
+    const targetPx =
 
         Number(cm)
-        * 96
-        / 2.54;
+        *
+        96
+        /
+        2.54;
+
+
+    return targetPx /
+        (
+            capRatio || .72
+        );
+
+}
+
+
+/* =========================================================
+   KHỔ GIẤY
+========================================================= */
+
+function updatePaper() {
+
+    let width;
+    let height;
 
 
     if (
-        !capHeightRatio
-        ||
-        capHeightRatio <= 0
+        orientation.value ===
+        "portrait"
     ) {
 
-        return targetPixels / 0.72;
+        width =
+            210;
+
+        height =
+            297;
+
+    }
+
+    else {
+
+        width =
+            297;
+
+        height =
+            210;
 
     }
 
 
-    return
-        targetPixels
-        / capHeightRatio;
+    page.style.width =
+        width + "mm";
+
+
+    page.style.height =
+        height + "mm";
+
+
+    $("paperInfo").textContent =
+
+        `A4 · ${width} × ${height} mm`;
+
+
+    /*
+       Nếu đổi hướng giấy,
+       đưa tâm mặc định về chính giữa.
+    */
+
+    if (
+        !orientation.dataset.changed
+    ) {
+
+        posX.value =
+            width / 2;
+
+        posY.value =
+            height / 2;
+
+    }
 
 }
 
 
 /* =========================================================
-   UPDATE
+   HIỂN THỊ OPTIONS
+========================================================= */
+
+function updateOptions() {
+
+    $("horizontalOption")
+        .classList.toggle(
+            "active",
+            horizontalMirror.checked
+        );
+
+
+    $("verticalOption")
+        .classList.toggle(
+            "active",
+            verticalMirror.checked
+        );
+
+
+    $("centerOption")
+        .classList.toggle(
+            "active",
+            showCenter.checked
+        );
+
+}
+
+
+/* =========================================================
+   TỰ SCALE A4 CHO MOBILE
+========================================================= */
+
+function fitPreview() {
+
+    /*
+       Chỉ scale bản xem trước.
+       Khi in luôn trả về 100%.
+    */
+
+    const pageWidthPx =
+        page.getBoundingClientRect().width;
+
+
+    const available =
+        viewport.clientWidth - 16;
+
+
+    if (
+        window.innerWidth <= 600
+    ) {
+
+        const scale =
+            Math.min(
+                1,
+                available /
+                pageWidthPx
+            );
+
+
+        page.style.transform =
+            `scale(${scale})`;
+
+
+        page.style.transformOrigin =
+            "top left";
+
+
+        viewport.style.height =
+            (
+                page.getBoundingClientRect().height
+                * scale
+                + 16
+            )
+            + "px";
+
+    }
+
+    else {
+
+        page.style.transform =
+            "none";
+
+
+        viewport.style.height =
+            "auto";
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE PREVIEW
 ========================================================= */
 
 function updatePreview() {
 
 
     /* ---------------------------------
-       Nội dung
+       NỘI DUNG
     --------------------------------- */
 
-    preview.textContent =
-        textInput.value;
+    /*
+       Không dùng pre-wrap.
+
+       Chỉ Enter mới xuống dòng.
+       Một dòng sẽ KHÔNG BAO GIỜ
+       tự xuống dòng khi co ngang.
+    */
+
+    const lines =
+        textInput.value
+        .split("\n");
+
+
+    word.innerHTML =
+        lines
+        .map(
+            line =>
+                `<span class="line">${
+                    escapeHTML(line)
+                }</span>`
+        )
+        .join("");
 
 
     /* ---------------------------------
-       Chiều cao chữ
+       CHIỀU CAO
     --------------------------------- */
 
     const fontSize =
-
-        getFontSizeFromCapHeight(
+        fontSizeFromCapHeight(
             capHeight.value
         );
 
 
-    preview.style.fontSize =
+    word.style.fontSize =
         fontSize + "px";
 
 
     /* ---------------------------------
-       Độ đậm
-    --------------------------------- */
-
-    preview.style.fontWeight =
-        fontWeight.value;
-
-
-    /* ---------------------------------
-       Khoảng cách chữ
-    --------------------------------- */
-
-    preview.style.letterSpacing =
-
-        letterSpacing.value
-        + "px";
-
-
-    /* ---------------------------------
-       Căn chữ
-    --------------------------------- */
-
-    preview.style.textAlign =
-        align.value;
-
-
-    /* ---------------------------------
-       Vị trí
-    --------------------------------- */
-
-    /*
-       width = 190 mm
-
-       Vì left là mép trái
-       nên lấy X - 95 để
-       X trở thành tâm.
-    */
-
-    preview.style.left =
-
-        (
-            Number(posX.value)
-            - 95
-        )
-        + "mm";
-
-
-    preview.style.top =
-
-        Number(posY.value)
-        + "mm";
-
-
-    /* ---------------------------------
-       Co ngang
+       CO NGANG
     --------------------------------- */
 
     const sx =
-
         Number(scaleX.value)
         / 100;
 
@@ -1044,199 +2068,145 @@ function updatePreview() {
        LẬT
     --------------------------------- */
 
-    let mirrorX = 1;
-
-    let mirrorY = 1;
-
-
-    if (
-        mirror.value ===
-        "horizontal"
-    ) {
-
-        mirrorX = -1;
-
-    }
+    const mx =
+        horizontalMirror.checked
+        ? -1
+        : 1;
 
 
-    else if (
-        mirror.value ===
-        "vertical"
-    ) {
-
-        mirrorY = -1;
-
-    }
+    const my =
+        verticalMirror.checked
+        ? -1
+        : 1;
 
 
-    else if (
-        mirror.value ===
-        "both"
-    ) {
+    /* ---------------------------------
+       FONT
+    --------------------------------- */
 
-        mirrorX = -1;
+    word.style.letterSpacing =
+        Number(
+            letterSpacing.value
+        )
+        + "px";
 
-        mirrorY = -1;
 
-    }
+    word.style.textAlign =
+        align.value;
+
+
+    /* ---------------------------------
+       VỊ TRÍ
+    --------------------------------- */
+
+    word.style.left =
+        Number(posX.value)
+        + "mm";
+
+
+    word.style.top =
+        Number(posY.value)
+        + "mm";
 
 
     /* ---------------------------------
        TRANSFORM
     --------------------------------- */
 
-    preview.style.transform =
+    word.style.transform =
 
-        "translateY(-50%) "
-        +
-
-        "scale("
-        +
-
-        (
-            sx
-            * mirrorX
-        )
-
-        +
-
-        ","
-
-        +
-
-        mirrorY
-
-        +
-
-        ")";
+        `translate(-50%, -50%)
+         scale(${sx * mx}, ${my})`;
 
 
     /* ---------------------------------
-       Hiển thị giá trị
+       TÂM
     --------------------------------- */
 
-    $("scaleValue")
-        .textContent =
-        scaleX.value;
+    center.style.left =
+        Number(posX.value)
+        + "mm";
 
 
-    /* ---------------------------------
-       Tâm
-    --------------------------------- */
-
-    centerPoint.style.left =
-        posX.value + "mm";
+    center.style.top =
+        Number(posY.value)
+        + "mm";
 
 
-    centerPoint.style.top =
-        posY.value + "mm";
-
-
-    centerPoint.style.display =
-
-        showCenter.value === "yes"
+    center.style.display =
+        showCenter.checked
         ? "block"
         : "none";
 
-}
+
+    /* ---------------------------------
+       UI
+    --------------------------------- */
+
+    $("scaleLabel").textContent =
+        scaleX.value + "%";
 
 
-/* =========================================================
-   RESET
-========================================================= */
-
-function resetSettings() {
+    updateOptions();
 
 
-    textInput.value =
-        "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
+    /*
+       Cho browser layout xong
+       rồi scale preview.
+    */
 
-
-    capHeight.value =
-        2;
-
-
-    scaleX.value =
-        100;
-
-
-    posX.value =
-        105;
-
-
-    posY.value =
-        45;
-
-
-    letterSpacing.value =
-        0;
-
-
-    align.value =
-        "center";
-
-
-    fontWeight.value =
-        "normal";
-
-
-    mirror.value =
-        "horizontal";
-
-
-    showCenter.value =
-        "no";
-
-
-    updatePreview();
+    requestAnimationFrame(
+        fitPreview
+    );
 
 }
 
 
 /* =========================================================
-   REAL-TIME UPDATE
+   ESCAPE HTML
 ========================================================= */
 
-[
-    textInput,
-    capHeight,
-    scaleX,
-    posX,
-    posY,
-    letterSpacing,
-    align,
-    fontWeight,
-    mirror,
-    showCenter
+function escapeHTML(text) {
 
-].forEach(
+    return text
 
-    element => {
+        .replace(
+            /&/g,
+            "&amp;"
+        )
 
-        element.addEventListener(
-            "input",
-            updatePreview
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
         );
-
-
-        element.addEventListener(
-            "change",
-            updatePreview
-        );
-
-    }
-
-);
+}
 
 
 /* =========================================================
-   KHỞI TẠO
+   RANGE ↔ NUMBER
 ========================================================= */
 
-document.fonts.ready.then(
-    async () => {
+scaleX.addEventListener(
+    "input",
+    () => {
 
-        await measureFont();
+        scaleXNumber.value =
+            scaleX.value;
 
         updatePreview();
 
@@ -1244,14 +2214,207 @@ document.fonts.ready.then(
 );
 
 
-/*
-   Hiển thị ngay cả khi font
-   chưa tải xong.
-*/
+scaleXNumber.addEventListener(
+    "input",
+    () => {
 
-updatePreview();
+        scaleX.value =
+            scaleXNumber.value;
+
+        updatePreview();
+
+    }
+);
+
+
+/* =========================================================
+   CÁC CONTROL
+========================================================= */
+
+[
+    textInput,
+    capHeight,
+    orientation,
+    posX,
+    posY,
+    letterSpacing,
+    align,
+    horizontalMirror,
+    verticalMirror,
+    showCenter
+
+].forEach(
+    element => {
+
+        element.addEventListener(
+            "input",
+            () => {
+
+                if (
+                    element ===
+                    orientation
+                ) {
+
+                    orientation.dataset.changed =
+                        "true";
+
+                    updatePaper();
+
+                }
+
+                updatePreview();
+
+            }
+        );
+
+
+        element.addEventListener(
+            "change",
+            () => {
+
+                if (
+                    element ===
+                    orientation
+                ) {
+
+                    orientation.dataset.changed =
+                        "true";
+
+                    updatePaper();
+
+                }
+
+                updatePreview();
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   IN
+========================================================= */
+
+$("printButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            window.print();
+
+        }
+    );
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+$("resetButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            textInput.value =
+                "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM";
+
+
+            capHeight.value =
+                2;
+
+
+            scaleX.value =
+                100;
+
+
+            scaleXNumber.value =
+                100;
+
+
+            orientation.value =
+                "portrait";
+
+
+            orientation.dataset.changed =
+                "";
+
+
+            posX.value =
+                105;
+
+
+            posY.value =
+                148.5;
+
+
+            letterSpacing.value =
+                0;
+
+
+            align.value =
+                "center";
+
+
+            horizontalMirror.checked =
+                true;
+
+
+            verticalMirror.checked =
+                false;
+
+
+            showCenter.checked =
+                false;
+
+
+            updatePaper();
+
+            updatePreview();
+
+        }
+    );
+
+
+/* =========================================================
+   RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        requestAnimationFrame(
+            fitPreview
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KHỞI TẠO
+========================================================= */
+
+async function init() {
+
+    updatePaper();
+
+    updatePreview();
+
+
+    await measureCapHeight();
+
+
+    updatePreview();
+
+}
+
+
+init();
 
 </script>
 
 </body>
-</html>
+   </html>
